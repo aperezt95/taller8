@@ -1,4 +1,5 @@
 version: '2.1'
+
 orbs:
   node: circleci/node@5.1.0
 
@@ -28,25 +29,11 @@ jobs:
       - run:
           name: Deploy to Railway App
           command: |
-            export RAILWAY_TOKEN=$RAILWAY_TOKEN
             cd bankchurn-api
-            railway up --service=reasonable-renewal
-            railway up --detach
-
-
-tags_only: &tags_only
-  filters:
-    branches:
-      ignore: /.*/
-    tags:
-      only: /^.*/
+            railway up --service=reasonable-renewal --token=$RAILWAY_TOKEN
+            railway up --detach --token=$RAILWAY_TOKEN
 
 workflows:
-  version: 1
-  deploy_pipeline:
+  deploy:
     jobs:
-      - deploy_app_to_railway:
-          filters:
-            branches:
-              only:
-                - main
+      - deploy_app_to_railway
