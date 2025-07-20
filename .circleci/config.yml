@@ -27,7 +27,8 @@ jobs:
       - run: npm i -g @railway/cli
       - run:
           name: CheckRailwayToken
-          command: echo "Token: $RAILWAY_TOKEN"
+          command: |
+            echo "Token: $RAILWAY_TOKEN"
       - run:
           name: Deploy to Railway App
           command: |
