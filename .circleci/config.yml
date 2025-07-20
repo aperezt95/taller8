@@ -33,8 +33,7 @@ jobs:
           name: Deploy to Railway App
           command: |
             cd bankchurn-api 
-            railway up --service=reasonable-renewal
-            railway up --detach
+            railway up --service=reasonable-renewal --ci
 
 
 tags_only: &tags_only
