@@ -28,6 +28,7 @@ jobs:
       - run:
           name: Deploy to Railway App
           command: |
+            export RAILWAY_TOKEN=$RAILWAY_TOKEN
             cd bankchurn-api
             railway up --service=splendid-simplicity
             railway up --detach
