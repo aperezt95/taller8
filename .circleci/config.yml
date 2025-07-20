@@ -34,7 +34,12 @@ jobs:
           command: |
             cd bankchurn-api 
             railway up --service=reasonable-renewal --ci
-
+      - run:
+          name: Deploy to Railway App
+          command: |
+            cd bankchurn-api
+            echo "Deploying with token: ${RAILWAY_TOKEN:0:4}***"
+            RAILWAY_TOKEN=$RAILWAY_TOKEN railway up --service=reasonable-renewal --ci
 
 tags_only: &tags_only
   filters:
