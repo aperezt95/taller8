@@ -28,8 +28,7 @@ jobs:
       - run:
           name: Deploy to Railway App
           command: |
-            export RAILWAY_TOKEN=$RAILWAY_TOKEN
-            cd bankchurn-api 
+            cd bankchurn-api
             railway up --service=reasonable-renewal
             railway up --detach
 
